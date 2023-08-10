@@ -9,16 +9,13 @@ font-family: 'Shadows Into Light', cursive;
 .mood-font {
     font-family: 'Preahvihear', sans-serif;
 }
-#quote {
-    background: white;
-}
-#forecast1, #forecast2 {
+
+#forecast1 #forecast2 {
 border: 2px solid pink;
 text-align: left;
 display: none;
 padding-left: 10px;
 background: white;
-
 }
 
 /* #forecast2 {
@@ -30,8 +27,8 @@ background: white;
 
 #moonphase {
     border: 2px solid pink;
-    background: white;
     display: none;
+    background: white;
 }
 
 
