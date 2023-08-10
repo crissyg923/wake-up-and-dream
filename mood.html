@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Nova+Square&family=Shadows+Into+Light&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Nova+Square&family=Preahvihear&family=Shadows+Into+Light&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/style.css" />
@@ -24,49 +24,50 @@
     <div class="w-full h-screen flex flex-col justify-center">
       <div class="self-center text-5xl cool-font">MOOD TRACKER</div>
       <div class="grid grid-cols-2 gap-10 p-5 sm:grid-cols-3">
-        <div class="w-full bg-pink-400">
-          <div class="w-full h-full text-center flex items-center justify-around">
-            <div>
-                joyful, happy, relaxed, silly, content, great
-            </div>
+        <div id="pink-box" class="w-full bg-pink-400">
+          <div
+            class="w-full h-full text-center flex items-center justify-around mood-font"
+          >
+            <div>joyful, happy, relaxed, silly, content, great</div>
           </div>
         </div>
-        <div class="w-full aspect-video bg-blue-400">
-            <div class="w-full h-full text-center flex items-center justify-around">
-                <div>
-                    sad, lonely, depressed, insecure, numb
-                </div>
-              </div>
+        <div id="blue-box" class="w-full aspect-video bg-blue-400">
+          <div
+            class="w-full h-full text-center flex items-center justify-around mood-font"
+          >
+            <div>sad, lonely, depressed, insecure, numb</div>
+          </div>
         </div>
-        <div class="w-full aspect-video bg-green-400">
-            <div class="w-full h-full text-center flex items-center justify-around">
-                <div>
-                    productive, energetic, active, motivated, alive
-                </div>
-              </div>
+        <div id="green-box" class="w-full aspect-video bg-green-400">
+          <div
+            class="w-full h-full text-center flex items-center justify-around mood-font"
+          >
+            <div>productive, energetic, active, motivated, alive</div>
+          </div>
         </div>
-        <div class="w-full aspect-video bg-yellow-400">
-            <div class="w-full h-full text-center flex items-center justify-around">
-                <div>
-                    sick, tired, lazy, unmotivated, bored, dull 
-                </div>
-              </div>
+        <div id="yellow-box" class="w-full aspect-video bg-yellow-400">
+          <div
+            class="w-full h-full text-center flex items-center justify-around mood-font"
+          >
+            <div>sick, tired, lazy, unmotivated, bored, dull</div>
+          </div>
         </div>
-        <div class="w-full aspect-video bg-orange-400">
-            <div class="w-full h-full text-center flex items-center justify-around">
-                <div>
-                    average, normal, uneventful, good
-                </div>
-              </div>
+        <div id="orange-box" class="w-full aspect-video bg-orange-400">
+          <div
+            class="w-full h-full text-center flex items-center justify-around mood-font"
+          >
+            <div>average, normal, uneventful, good</div>
+          </div>
         </div>
-        <div class="w-full aspect-video bg-red-400">
-            <div class="w-full h-full text-center flex items-center justify-around">
-                <div>
-                    angry, anxious, frustrated, annoyed, grumpy
-                </div>
-              </div>
+        <div id="red-box" class="w-full aspect-video bg-red-400">
+          <div
+            class="w-full h-full text-center flex items-center justify-around mood-font"
+          >
+            <div>angry, anxious, frustrated, annoyed, grumpy</div>
+          </div>
         </div>
       </div>
     </div>
+    <script src="assets/mood.js"></script>
   </body>
 </html>
