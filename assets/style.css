@@ -10,7 +10,7 @@ font-family: 'Shadows Into Light', cursive;
     font-family: 'Preahvihear', sans-serif;
 }
 
-#forecast1 #forecast2 {
+#forecast1, #forecast2 {
 border: 2px solid pink;
 text-align: left;
 display: none;
