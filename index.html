@@ -20,8 +20,8 @@
         <div class="flex-none  p-5 m-3" id="quote"></div>
         <div class="flex-none  p-16 m-10 border-2" id="journalbutton">Button to Journal</div>
     </div>
-    <div class="flex flex-col weathercontainer">
-    <div class="flex p-5 m-5 border-2" id="weather" class="weatherclass">
+    <div class="flex flex-col grow-0 items-end weathercontainer">
+    <div class="flex grow-0 p-5 m-5 text-end border-2" id="weather" class="weatherclass">
         
         <form class="weatherform" id="weatherform">
             <label>Please enter your city below to get the local weather.</label>
@@ -32,16 +32,18 @@
         </form>
          </br>
     </div>
-        <div class="flex p-5 m-5" id="weatherdisplay"></div>
-        <div class="flex flex-row">
-        <div class="flex p-5 m-5" id="forecast1">8</div>
-        <div class="flex p-5 m-5" id="forecast2">9</div>
+        <div class="flex flex-col p-5 m-5 grow-0" id="weatherdisplay">
+        
+        <div class="flex p-5 m-5 text-end" id="forecast1"></div>
+        <div class="flex p-5 m-5" id="forecast2"></div>
+        <div class="flex p-5 m-5" id="moonphase"></div>
         </div>
     </div>
     
 
     </div>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <script src="assets/script.js"></script>
 </body>
 </html>

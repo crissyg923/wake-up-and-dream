@@ -1,7 +1,7 @@
-body {
+/* body {
     background-image: url("../images/kenrick-mills-MF9Wy1NA55I-unsplash.jpg");
     background-size: cover;
-}
+} */
 .cool-font {
 font-family: 'Shadows Into Light', cursive;
 }
@@ -9,3 +9,24 @@ font-family: 'Shadows Into Light', cursive;
 .mood-font {
     font-family: 'Preahvihear', sans-serif;
 }
+
+#forecast1 {
+border: 2px solid pink;
+text-align: left;
+display: none;
+padding-left: 10px;
+}
+
+#forecast2 {
+    border: 2px solid pink;
+    display: none;
+    text-align: left;
+    padding-left: 10px;
+}
+
+#moonphase {
+    border: 2px solid pink;
+    display: none;
+}
+
+
