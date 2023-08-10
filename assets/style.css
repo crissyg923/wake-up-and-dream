@@ -3,6 +3,9 @@ body {
     background-size: cover;
 }
 .cool-font {
-    font-family: 'Nova Square', cursive;
 font-family: 'Shadows Into Light', cursive;
+}
+
+.mood-font {
+    font-family: 'Preahvihear', sans-serif;
 }
