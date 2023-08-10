@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/3.5.1/full.css" integrity="sha512-2mnbZkijSvaJONYRZZYmUWfbK83kIGCBLfhRh9WKT7znG4LVHMCxC3Kzy6HcHXmfr8a4JTo/rRnLU7calLT89A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -16,16 +15,33 @@
             <div class="flex-1 grow p-16 m-10 border-2 self-stretch" id="date">Date</div>
         </div>
     <div class="flex flex-col items-center">
-        <div class="flex-1 grow p-16 m-10 border-2" id="sitelogo">Wake Up & Dream</div>
- 
+        <div class="flex-1 grow p-16 m-10 border-2" id="sitelogo">Wake Up & Dream</div> 
         <div class="flex-none  p-16 m-10 border-2" id="artwork">Artwork</div>
-        <div class="flex-none  p-16 m-10 border-2" id="quote">Quote</div>
+        <div class="flex-none  p-5 m-3" id="quote"></div>
         <div class="flex-none  p-16 m-10 border-2" id="journalbutton">Button to Journal</div>
     </div>
-    <div class="flex flex-col">
-    <div class="flex-1 grow p-16 m-10 border-2" id="weather">Weather</div>
+    <div class="flex flex-col weathercontainer">
+    <div class="flex p-5 m-5 border-2" id="weather" class="weatherclass">
+        
+        <form class="weatherform" id="weatherform">
+            <label>Please enter your city below to get the local weather.</label>
+        </br>
+            <input id="cityinput" type="text">
+        </br>
+            <button id="submitbutton">Submit</button>
+        </form>
+         </br>
     </div>
+        <div class="flex p-5 m-5" id="weatherdisplay"></div>
+        <div class="flex flex-row">
+        <div class="flex p-5 m-5" id="forecast1">8</div>
+        <div class="flex p-5 m-5" id="forecast2">9</div>
+        </div>
     </div>
     
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="assets/script.js"></script>
 </body>
 </html>
