@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="flex justify-start">
-        <form id="journal-form"></form>
+        <form id="journal-form" method="POST"></form>
         <div class="contents">
     <div class="border-2 border-teal-500 border-8 box-border w-full ">
 
@@ -23,21 +23,23 @@
 <div class id="color-type"></div>
 </div>
 
-    <input type="text" class="form-control box-content text-2xl w-full h-96 border-pink-200 border-4 flex items-center justify-around" id="entry" placeholder="Describe your dream last night. If you don't remember, write your thoughts here."/>
+    <input type="text" class=" box-content text-2xl w-full h-96 border-pink-200 border-4 flex items-center justify-around" id="entry-text" placeholder="Describe your dream last night. If you don't remember, write your thoughts here."/>
 
-<div class="m-5 text-2xl text-center text-pink-200 outline outline-offset-2 outline-pink-500 bg-teal-500">
-    <button type="submit" value="Submit" class="btn btn-info">
-        Submit
-    </button>
 </div>  
+<div class="text-center text-pink-200 outline outline-offset-2 outline-pink-500 bg-teal-500">
+    <button class="btn btn-info text-2xl" id="saveBtn">Save</button>
+    </div>
 <div class="text-center text-pink-200 outline outline-offset-2 outline-pink-500 bg-teal-500">
 <a href="./index.html" class="btn btn-info text-2xl   " id="Exitbutton">Return Home</a>
 </div>
 </div>
 </div>
 </form>
-
+<div class="flex-col">
+    <h2 class="text-pink-200 outline outline-offset-2 outline-pink-500">Saved Entries</h2> 
+    <ul id="entry-list"></ul>
+    </div>
 </div>
-    <script src="assets/joscript.js"></script>
+    <script src="./assets/joscript.js"></script>
 </body>
 </html>

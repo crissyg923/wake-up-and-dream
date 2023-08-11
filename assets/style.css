@@ -32,3 +32,10 @@ background: white;
 }
 
 
+  
+ 
+  
+li {
+    border:solid plum;
+    color: rgb(109, 67, 109);
+}
