@@ -1,44 +1,62 @@
-var formEl = $('#journal-form');
-var moodInputEl = $('#mood-name');
-var entryInputEl = $('#entry');
-var entryListEl = $('#entry-list');
 
-var printEntries = function (name, entry) {
-  var listEl = $('<li>');
-  var listEnry = name.concat(' on ', entry);
-  listEl.addClass('list-group-item').text(listEntry);
-  listEl.appendTo(enryListEl);
-};
+var formEl = document.querySelector('#journal-form');
+var moodInputEl = document.querySelector$('#mood-name');
+var entryInputEl = document.querySelector$('#entry');
+var entryListEl = document.querySelector$('#entry-list');
 
-var moodFormSubmit = function (event) {
-  event.preventDefault();
+var entries=[]
 
-  var moodInput = moodInputEl.val();
-  var entryInput = entryInputEl.val();
+function printEntries () {
+  entryListEl.innerHTML="";
+  entryInputEl.textContent=entries.length;
+  for (var i = 0; i < todos.length; i++) {
+    var entry = entries[i];
+
+    var li = document.createElement("li");
+    li.textContent = entry;
+    li.setAttribute("data-index", i);
+
+    entryListEl.appendChild(li);
+  }
+  
+    }
 
 
-  printSkills(moodInput, entryInput);
 
-  // resets form
-  moodInputEl.val('');
-  entryInputEl.val('');
-};
+function init() {
+    var storedEntry = JSON.parse(localStorage.getItem("entries"));
+  
+    
+    if (storedEntry !== null) {
+      entries = storedEntry;
+    }
 
-formEl.on('submit', moodFormSubmit);
+    printEntries();
+  }
+  
+  function storeEntry() {
+   
+    localStorage.setItem("entries", JSON.stringify(entries));
+  }
+  
+ 
+  formEl.addEventListener("submit", function(event) {
+    event.preventDefault();
+  
+    var entryText = formEl.value.trim();
+  
+    if (entryText === "") {
+      return;
+    }
+    entries.push(entryText);
+    formEl.value = "";
+  
 
-// Autocomplete widget
-$(function () {
-  var moodColors = [
-    'Pink',
-    'Blue',
-    'Green',
-    'Yellow',
-    'Orange',
-    'Red',
-  ];
-  $('#mood-name').autocomplete({
-    source: moodColors,
+    storeEntry();
+    printEntries();
   });
-});
+  
 
 
+  init()
+  
