@@ -3,42 +3,41 @@ var moodInputEl = $('#mood-name');
 var entryInputEl = $('#entry');
 var entryListEl = $('#entry-list');
 
-var printEntries = function (name, entry) {
-  var listEl = $('<li>');
-  var listEnry = name.concat(' on ', entry);
-  listEl.addClass('list-group-item').text(listEntry);
-  listEl.appendTo(enryListEl);
-};
+var entries=[]
 
-var moodFormSubmit = function (event) {
+var printEntries = function () {
+  var listEl = $('<li>');
+  var listEntry = moodInputEl.concat(entryInputEl);
+  listEl.addClass('list-group-item').text(listEntry);
+  listEl.appendTo(entryListEl);
+    }
+
+
+formEl.addEventListener('submit', function(event){
   event.preventDefault();
 
-  var moodInput = moodInputEl.val();
-  var entryInput = entryInputEl.val();
+  var moodInput = moodInputEl.value.trim();
+  var entryText = entryInputEl.value.trim();
+ entries.push(moodInput);
+ entries.push(entryText);
+ moodInput.value = "";
+ entryText.value = "";
 
-
-  printSkills(moodInput, entryInput);
-
-  // resets form
-  moodInputEl.val('');
-  entryInputEl.val('');
-};
-
-formEl.on('submit', moodFormSubmit);
-
-// Autocomplete widget
-$(function () {
-  var moodColors = [
-    'Pink',
-    'Blue',
-    'Green',
-    'Yellow',
-    'Orange',
-    'Red',
-  ];
-  $('#mood-name').autocomplete({
-    source: moodColors,
-  });
+printEntries();
+storeEntry();
 });
 
+function init () {
+    var storedEntry=Json.parse(localStorage.getIteam("entries"));
+    if (storedEntry !== null) {
+        todos = storedEntry;
+      }
+    printEntries();
+}
+function storeEntry() {
+    // Stringify and set key in localStorage to todos array
+    localStorage.setItem("entries", JSON.stringify(entries));
+  }
+
+init()
 

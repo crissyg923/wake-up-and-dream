@@ -1,17 +1,44 @@
+var formEl = $('#journal-form');
+var moodInputEl = $('#mood-name');
+var entryInputEl = $('#entry');
+var entryListEl = $('#entry-list');
+
+var printEntries = function (name, entry) {
+  var listEl = $('<li>');
+  var listEntry = name.concat(' on ', entry);
+  listEl.addClass('list-group-item').text(listEntry);
+  listEl.appendTo(entryListEl);
+};
+
+var entryFormSubmit = function (event) {
+  event.preventDefault();
+
+  var moodInput = moodInputEl.val();
+  var entryInput = entryInputEl.val();
+
+
+  printEntries(moodInput, entryInput);
+
+  
+  moodInputEl.val('');
+  entryInputEl.val('');
+};
+
+formEl.on('submit', entryFormSubmit);
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-   
+    <title>My Dream Journal</title>
     <link rel="stylesheet"
     href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
     <link  href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap"
     rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="assets/style.css">
- <title>My Dream Journal</title>
 </head>
 <body>
     <div class="flex ">
@@ -42,13 +69,6 @@
 <div class="col-3 ">
 <h2 class="text-pink-200 outline outline-offset-2 outline-pink-500">Saved Entries</h2>
 <div class="py-3">
-<ul class="list-group" id="entry-list"></ul>
+<ul class="list-group" id="skills-list"></ul>
 </div>
 </div>
-
-</div>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="assets/joscript.js"></script>
-</body>
-</html>
