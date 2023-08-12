@@ -4,6 +4,7 @@ const entryInput = document.querySelector('#entry-text');
 var entryList = document.querySelector('#entry-list');
 var entries =[];
 var saveEl=document.querySelector("#saveBtn");
+var moodInputEl = $('#mood-name');
 
 
 function printEntries () {
@@ -67,6 +68,34 @@ function fetchMoodChoice () {
 })
 }
 
+$(function () {
+  var moodColors = [
+    'Pink',
+    'Blue',
+    'Green',
+    'Yellow',
+    'Orange',
+    'Red',
+  ];
+  $('#mood-name').autocomplete({
+    source: moodColors,
+  });
+});
+
+var getParameters= function (){
+  searchParams=document.location.search.split('&');
+  var moodToday=searchParams[1].split('=').pop();
+  var moodColor=document.getElementById('color-type');
+var moodColorEl=document.createElement('p');
+  moodColorEl.innerHTML=moodToday
+  moodColor.appendChild(moodColorEl);
+}
+
+getParameters();
+
+//button and on click event listener.
+
+getParameters();
 
 
 
