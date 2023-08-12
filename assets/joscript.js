@@ -49,4 +49,10 @@ var moodColorEl=document.createElement('p');
   moodColorEl.innerHTML=moodToday
   moodColor.appendChild(moodColorEl);
 }
+
 getParameters();
+
+
+//button and on click event listener.
+
+main

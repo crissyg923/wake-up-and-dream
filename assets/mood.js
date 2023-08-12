@@ -34,3 +34,7 @@ var displayColor= function() {
 }
 document.getElementById("red-box").addEventListener("click", displayColor);
 
+var getParameters= function (){
+    searchParams=document.location.search.split('&');
+    var moodToday=searchParams[0].split('=').pop();
+  }
