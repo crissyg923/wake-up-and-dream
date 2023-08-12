@@ -8,20 +8,26 @@
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-    
+    <header class="logo"><div class="logoholder"><img src="images/Rectangle Logo.svg" width="70%"</div></header>
     <div class="flex flex-row justify-between">
 
         <div class="flex-col items-stretch">
-            <div class="flex-1 grow p-16 m-10 border-2 self-stretch" id="date">Date</div>
+            <div class="flex-1 grow p-16 m-10 border-2 self-stretch" id="date"></div>
+            <div class="flex-1 grow p-16 m-10 border-2 self-stretch" id="moodbox">
+                <div id="buttonholder">
+                    <button class="bg-pink-400 hover:bg-pink-600 text-white font-bold py-2 px-4 border-b-4 border-teal-400 hover:border-teal-400 rounded">
+                        Select Your Mood
+                      </button>
+                </div>
+            </div>
         </div>
-    <div class="flex flex-col items-center">
-        <div class="flex-1 grow p-16 m-10 border-2" id="sitelogo">Wake Up & Dream</div> 
+    <div class="flex flex-col items-center"> 
         <div class="flex-none  p-16 m-10 border-2" id="artwork">Artwork</div>
         <div class="flex-none  p-5 m-3" id="quote"></div>
         <a href="./journal.html" class="flex-none  p-16 m-10 border-2 btn btn-info " id="journalbutton">Button to Journal</a>
     </div>
     <div class="flex flex-col grow-0 items-end weathercontainer">
-    <div class="flex grow-0 p-5 m-5 text-end border-2" id="weather" class="weatherclass">
+    <div class="flex grow-0 p-5 m-5 text-end" id="weather" class="weatherclass">
         
         <form class="weatherform" id="weatherform">
             <label>Please enter your city below to get the local weather.</label>
