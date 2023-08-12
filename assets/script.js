@@ -66,6 +66,7 @@ function displayWeatherForecast(weatherData) {
     cardTitle.innerHTML= "Current Weather:";
     tempEl.innerHTML= "Current temp: " + currentTemperature + "°";
     feelsLikeEl.innerHTML="Feels like: " + feelsLike + "°";
+
     // Appends current weather conditions to currend conditions card
     currentConditions.appendChild(cardTitle);
     currentConditions.appendChild(currentDateEl)
@@ -76,6 +77,7 @@ function displayWeatherForecast(weatherData) {
     // Creates Elements needed to display forecast for rest of the day
     var dailyForecastTitle=document.createElement('h2');
     var currentForecastDateEl=document.createElement('h3');
+
     // var currentForecastCityEl=document.createElement('p');
     var weatherForecastIconEl=document.createElement('img');
     var tempLowEl=document.createElement('p');
@@ -111,6 +113,54 @@ function displayWeatherForecast(weatherData) {
 
 }
 
+
+var imageHolderEl=document.querySelector('.imageholder');
+function getImageTwo(photoArray) {
+    var randomIndex = Math.floor(Math.random() * photoArray.length);
+    console.log(randomIndex);
+    var photoSource=photoArray[randomIndex]['src']['medium'];
+    // var randomPhotoURL = photoSource[randomIndex];
+    imageHolderEl.src = photoSource;
+    localStorage.setItem('lastImageShown', photoSource);
+  }
+
+
+function getImage(data) {
+    console.log(data);
+var photoArray=data.photos;
+// var photoSource=photoArray[i].src.medium;
+getImageTwo(photoArray);
+    
+}
+
+
+var headers = {'Authorization': 'Z50bd6r1sVnst9KueR7gxIM0rt33qNk3oa3wIuwwJj95XXGo997RC0iR'};
+
+
+// Checks for a saved timestamp and previously shown image
+const lastImageShown = localStorage.getItem('lastImageShown');
+const lastImageChange = localStorage.getItem('lastImageChange'); // You can also use cookies
+
+// If nothing in local storage or if 24 hours have passed, fetch a new image
+if (!lastImageChange || Date.now() - lastImageChange >= 24 * 60 * 60 * 1000) {
+    fetch('https://api.pexels.com/v1/search?query=abstract&orientation=landscape&size=medium&per_page=76&color=pink', {headers})
+        .then(response => response.json())
+        .then(data => {
+               
+            // Store the current timestamp in local storage
+            localStorage.setItem('lastImageChange', Date.now()); 
+            // Grab new photo from data fetched from API
+            getImage(data);
+        })
+        .catch(error => {
+            console.error('Error fetching image:', error);
+        });
+  
+        
+}
+else if (localStorage) {
+    imageHolderEl.src=lastImageShown;
+}
 
 function sendToAPI (cityInputValue) {
     console.log(cityInputValue);
