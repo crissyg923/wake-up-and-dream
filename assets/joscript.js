@@ -5,7 +5,7 @@ var entryListEl = $('#entry-list');
 
 var printEntries = function (name, entry) {
   var listEl = $('<li>');
-  var listEnry = name.concat(' on ', entry);
+  var listEntry = name.concat(' on ', entry);
   listEl.addClass('list-group-item').text(listEntry);
   listEl.appendTo(enryListEl);
 };
@@ -52,3 +52,4 @@ var moodColorEl=document.createElement('p');
 
 //button and on click event listener.
 
+getParameters();
