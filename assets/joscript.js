@@ -45,3 +45,6 @@ var getParameters= function (){
   searchParams=document.location.search.split('&');
   var moodToday=searchParams[0].split('=').pop();
 }
+
+//button and on click event listener.
+

@@ -15,24 +15,34 @@
     <div class="flex justify-start">
         <form id="journal-form"></form>
         <div class="contents">
-    <div class="border-2 border-teal-500 border-8 box-border w-full ">
+    <div class="border-2 border-teal-500 border-8 box-border w-full sm:grid-cols-3">
 
     <div class="outline-pink-500" >
         <div class="text-4xl py-10 text-pink-200 text-center">My Dream Journal</div>
     </div>
 
-<div class="text-2xl py-10 text-pink-200 text-center">Mood Today:
-<div class id="color-type"></div>
+<div class="text-2xl py-10 text-pink-200 text-center">
+<div>Mood Today:</div>
+<div id="color-type" class="box-content h-20 w-30 border-4 outline-pink-500 justify-center">
 </div>
 
-    <input type="text" class="form-control box-content text-2xl w-full h-96 border-pink-300 border-4 flex items-center justify-around" id="entry" placeholder="Describe your dream last night. If you don't remember, write your thoughts here."/>
+    <div class="form-control box-content text-2xl w-full h-96 border-pink-300 border-4">
+        <div class="text-1xl">Describe your dream last night. If you don't remember, write your thoughts here:</div>
+        <div class="relative mb-3" data-te-input-wrapper-init>
+            <textarea
+              class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+              id="exampleFormControlTextarea1"
+              rows="3"
+              placeholder="Your message"></textarea>
+          </div>
+    </div>
 
-<div class="m-5 text-2xl text-center text-pink-200 outline outline-offset-2 outline-pink-300 bg-teal-500">
-    <button type="submit" value="Submit" class="btn btn-info">
+<div class="m-5 text-2xl text-center text-pink-200 outline outline-offset-2 outline-pink-300 bg-teal-500 hover:bg-blue-700 focus:bg-b">
+    <button id="submit-btn" type="submit" value="Submit" class="btn btn-info">
         Submit
     </button>
 </div>  
-<div class="m-5 text-2xl text-center text-pink-200 outline outline-offset-2 outline-pink-300 bg-teal-500">
+<div class="m-5 text-2xl text-center text-pink-200 outline outline-offset-2 outline-pink-300 bg-teal-500 hover:bg-blue-700 focus:bg-b">
 <a href="./index.html" class="btn btn-info text-2xl" id="Exitbutton">Return Home</a>
 </div>
 </div>
