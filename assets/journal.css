@@ -1,0 +1,19 @@
+li {
+    background-color: rgba(201, 229, 226, 0.785);
+    border-style:ridge;
+    border-radius: 10px;
+    border-width: 5px;
+    border-color:rgb(234, 149, 161);
+    color: rgb(200, 94, 145);
+    margin: 10px;
+    padding: 5px;
+}
+
+body {
+    background-image: url("../images/kenrick-mills-MF9Wy1NA55I-unsplash.jpg");
+    background-size: cover;
+}
+
+input {
+    text-align:start;
+}

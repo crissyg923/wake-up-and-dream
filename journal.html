@@ -9,37 +9,46 @@
     <link  href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap"
     rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/journal.css">
 </head>
 <body>
-    <div class="flex justify-start">
-        <form id="journal-form"></form>
+    <div class="flex justify-start w-4/5 ">
+        
         <div class="contents">
-    <div class="border-2 border-teal-500 border-8 box-border w-full ">
+    <div class="border-2 border-teal-500 border-8 box-border w-full p-8 ">
 
     <div class="outline-pink-500" >
-        <div class="text-4xl py-10 text-pink-200 text-center">My Dream Journal</div>
-    </div>
-
-<div class="text-2xl py-10 text-pink-200 text-center">Mood Today:
-<div class id="color-type"></div>
+        <form id="journal-form">
+        <div class="text-4xl py-5 text-rose-200 text-center">My Dream Journal</div>
+<div class="mb-10 text-rose-200 text-center " >
+    <a href="./mood.html" class="text-2xl btn btn-info">Mood Today: </a>
+    <div id="mood-data"></div>
 </div>
 
-    <input type="text" class="form-control box-content text-2xl w-full h-96 border-pink-300 border-4 flex items-center justify-around" id="entry" placeholder="Describe your dream last night. If you don't remember, write your thoughts here."/>
+    <textarea class="form-control box-content  w-full h-96 border-rose-300 border-4 " id="entry-text" placeholder="Describe your dream last night. If you don't remember, write your thoughts here.">
+    </textarea>
+    
 
-<div class="m-5 text-2xl text-center text-pink-200 outline outline-offset-2 outline-pink-300 bg-teal-500">
-    <button type="submit" value="Submit" class="btn btn-info">
-        Submit
-    </button>
-</div>  
-<div class="m-5 text-2xl text-center text-pink-200 outline outline-offset-2 outline-pink-300 bg-teal-500">
-<a href="./index.html" class="btn btn-info text-2xl" id="Exitbutton">Return Home</a>
-</div>
-</div>
-</div>
+
+    <div class="text-center text-pink-200 outline outline-offset-2 outline-rose-400 bg-teal-500 mt-8">
+        <button class="btn btn-info text-2xl" id="saveBtn">Save</button>
+        </div>
+    <div class="text-center text-pink-200 outline outline-offset-2 outline-rose-400 bg-teal-500 mt-8">
+    <a href="./index.html" class="btn btn-info text-2xl   " id="Exitbutton">Return Home</a>
+    </div>  
 </form>
-
-</div>
+    </div>
+    </div>
+  
+    <div class="text-pink-200 outline-double outline-offset-2 outline-rose-300 m-8 " >
+        <div class="text-center text-3xl text-rose-200 outline-double outline-offset-2 outline-rose-300 bg-teal-500">
+        <h2 >Saved Entries</h2>
+     </div>
+        <ul id="entry-list"></ul>
+        </div>
+    </div>
+    </div>
+    
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="assets/joscript.js"></script>
