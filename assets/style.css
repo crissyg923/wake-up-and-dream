@@ -4,6 +4,9 @@
 body {
     background-image: url("../images/kenrick-mills-MF9Wy1NA55I-unsplash.jpg");
     background-size: cover;
+    font-family: 'Comfortaa', cursive;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'PT Sans', sans-serif;
 }
 
 header {
@@ -28,6 +31,10 @@ font-family: 'Shadows Into Light', cursive;
 #date {
     background: var(--teal);
 }
+#quote {
+
+}
+
 #weatherform{
     background: var(--teal);
     padding: 8px;
