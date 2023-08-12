@@ -50,6 +50,11 @@ var moodColorEl=document.createElement('p');
   moodColor.appendChild(moodColorEl);
 }
 
+getParameters();
+
+
 //button and on click event listener.
 
 getParameters();
+
+
