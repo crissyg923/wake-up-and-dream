@@ -67,15 +67,6 @@ function fetchMoodChoice () {
 })
 }
 
-function printMood(data){
-  var moodInput = document.querySelector('#mood-datath');
-}
 
-getParameters();
-
-
-//button and on click event listener.
-
-getParameters();
 
 
