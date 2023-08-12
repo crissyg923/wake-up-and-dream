@@ -1,12 +1,3 @@
-// const successCallback = (position) => {
-//     console.log(position);
-// };
-
-// const errorCallback = (error) => {
-//     console.log(error);
-// };
-// navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-
 // var displayQuote= function(result) {
 //     console.log(result);
 //     var quoteEl = document.getElementById('quote');
@@ -32,13 +23,15 @@
 // });
 
 var weatherForm=document.querySelector('#weatherform');
-// var weatherDOM=document.querySelector('.weatherclass');
+var currentDate=document.getElementById('date');
+currentDate.innerHTML=dayjs().format('dddd, MMMM D, YYYY');
 
 var weatherAPI= '809d16a68a370f720312b6969f036c77';
 var weatherDisplay=document.getElementById('weatherdisplay');
 var currentConditions = document.querySelector('#forecast1');
 var fullDayForecast = document.querySelector('#forecast2');
 var currentMoonPhaseEl = document.querySelector('#moonphase');
+
 function displayWeatherForecast(weatherData) {
     currentConditions.textContent="";
     fullDayForecast.textContent="";
