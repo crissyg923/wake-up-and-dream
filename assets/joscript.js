@@ -4,17 +4,21 @@ const entryInput = document.querySelector('#entry-text');
 var entryList = document.querySelector('#entry-list');
 var entries =[];
 var saveEl=document.querySelector("#saveBtn");
-var moodInputEl = $('#mood-name');
-
+var moodColor=document.querySelector("#color-type")
 
 function printEntries () {
      entryList.innerHTML="";
     for (var i = 0; i < entries.length; i++) {
-
-  var entry=entries[i]
+      var entry=entries[i];
+     
     var li = document.createElement("li");
     li.textContent = entry;
+ //var myMood=document.createElement("h4");
+ //myMood.textContent=moodColor.("p");
+   // li.appendChild(myMood)
+
     entryList.appendChild(li);
+
     li.setAttribute("data-index", i);
     }
   }
@@ -68,24 +72,10 @@ function fetchMoodChoice () {
 })
 }
 
-$(function () {
-  var moodColors = [
-    'Pink',
-    'Blue',
-    'Green',
-    'Yellow',
-    'Orange',
-    'Red',
-  ];
-  $('#mood-name').autocomplete({
-    source: moodColors,
-  });
-});
 
 var getParameters= function (){
   searchParams=document.location.search.split('&');
   var moodToday=searchParams[1].split('=').pop();
-  var moodColor=document.getElementById('color-type');
 var moodColorEl=document.createElement('p');
   moodColorEl.innerHTML=moodToday
   moodColor.appendChild(moodColorEl);
