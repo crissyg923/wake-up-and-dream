@@ -17,37 +17,44 @@
         <div class="contents">
     <div class="border-2 border-teal-500 border-8 box-border w-full sm:grid-cols-3">
 
-    <div class="outline-pink-500" >
+    <div class="border-rose-400" >
         <div class="text-4xl py-10 text-pink-200 text-center">My Dream Journal</div>
     </div>
 
 <div class="text-2xl py-10 text-pink-200 text-center">
 <div>Mood Today:</div>
-<div id="color-type" class="box-content h-20 w-30 border-4 outline-pink-500 justify-center">
+<div id="color-type" class="box-content h-20 w-30 border-4 border-rose-400 justify-center">
 </div>
 
-    <div class="form-control box-content text-2xl w-full h-96 border-pink-300 border-4">
+    <div class="form-control box-content text-2xl w-full h-96 border-rose-400 border-4">
         <div class="text-1xl">Describe your dream last night. If you don't remember, write your thoughts here:</div>
         <div class="relative mb-3" data-te-input-wrapper-init>
-            <textarea
+            <textarea label="entry-text"
               class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-              id="exampleFormControlTextarea1"
-              rows="3"
-              placeholder="Your message"></textarea>
+              id="entry-text"
+              rows="3"></textarea>
           </div>
     </div>
 
-<div class="m-5 text-2xl text-center text-pink-200 outline outline-offset-2 outline-pink-300 bg-teal-500 hover:bg-blue-700 focus:bg-b">
-    <button id="submit-btn" type="submit" value="Submit" class="btn btn-info">
-        Submit
+<div class="m-5 text-2xl text-center text-pink-200 outline outline-offset-2 outline-rose-400 bg-teal-500 hover:bg-blue-700 focus:bg-b">
+    <button id="saveBtn" class="btn btn-info">
+        Save
     </button>
 </div>  
-<div class="m-5 text-2xl text-center text-pink-200 outline outline-offset-2 outline-pink-300 bg-teal-500 hover:bg-blue-700 focus:bg-b">
+<div class="m-5 text-2xl text-center text-pink-200 outline outline-offset-2 outline-rose-400 bg-teal-500 hover:bg-blue-700 focus:bg-b">
 <a href="./index.html" class="btn btn-info text-2xl" id="Exitbutton">Return Home</a>
 </div>
 </div>
 </div>
 </form>
+  
+<div class="text-pink-200 outline-double outline-offset-2 outline-rose-400 m-8 " >
+    <div class="text-center text-3xl text-rose-200 outline-double outline-offset-2 outline-rose-300 bg-teal-500">
+    <h2 >Saved Entries</h2>
+ </div>
+    <ul id="entry-list"></ul>
+    </div>
+</div>
 
 </div>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
