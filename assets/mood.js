@@ -1,5 +1,3 @@
-
-
 var displayColor= function(event) {
     event.preventDefault();
     console.log ("pink-box");

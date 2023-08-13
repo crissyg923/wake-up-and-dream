@@ -95,7 +95,5 @@ getParameters();
 
 //button and on click event listener.
 
-getParameters();
-
 
 
