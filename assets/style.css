@@ -31,6 +31,9 @@ font-family: 'Shadows Into Light', cursive;
 #date {
     background: var(--teal);
 }
+#dateheader {
+
+}
 /* #quote {
 
 } */
@@ -46,6 +49,9 @@ font-family: 'Shadows Into Light', cursive;
     max-width: 500px;
 }
 
+.weathercontainer{
+    max-width: 350px;
+}
 #weatherform{
     background: var(--teal);
     padding: 8px;
