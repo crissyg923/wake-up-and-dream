@@ -66,9 +66,11 @@ function displayWeatherForecast(weatherData) {
     cardTitle.innerHTML= "Current Weather:";
     tempEl.innerHTML= "Current temp: " + currentTemperature + "°";
     feelsLikeEl.innerHTML="Feels like: " + feelsLike + "°";
+    currentCityEl.innerHTML=currentCity;
 
     // Appends current weather conditions to currend conditions card
     currentConditions.appendChild(cardTitle);
+    currentConditions.appendChild(currentCityEl);
     currentConditions.appendChild(currentDateEl)
     currentConditions.appendChild(weatherIconEl);
     currentConditions.appendChild(tempEl);
@@ -162,18 +164,37 @@ else if (localStorage) {
     imageHolderEl.src=lastImageShown;
 }
 
+var saveLocal = function(cityInputValue) {
+localStorage.setItem('lastcitysearched', cityInputValue);
+}
+
+var getLocal=function (){
+    if(!localStorage) {
+        return;
+    }
+    var citySearchHistory=localStorage.getItem('lastcitysearched'); 
+    console.log(citySearchHistory);
+    sendToAPI(citySearchHistory);
+    
+}
 function sendToAPI (cityInputValue) {
     console.log(cityInputValue);
     var requestURL="http://api.weatherapi.com/v1/forecast.json?key=2bf9656260f94a3db7141730231008&q=" + cityInputValue;
     // var requestURL = 'http://api.openweathermap.org/geo/1.0/direct?q=' + cityInputValue + ',US&limit=5&appid=' + weatherAPI;
     fetch(requestURL)
     .then (function (response){
-        return response.json();
+        if (!response.ok) {
+            throw response.json();
+          }
+      return response.json();
     })
     .then (function(weatherData){
         console.log(weatherData);
         displayWeatherForecast(weatherData);
 })
+.catch(function (error) {
+    console.error(error);
+    });
 }
 
 
@@ -181,7 +202,10 @@ function getParameters(event) {
     event.preventDefault();
     var cityInputValue = document.querySelector('#cityinput').value;
     sendToAPI(cityInputValue);
+    saveLocal(cityInputValue);
     
 }
 
 weatherForm.addEventListener('submit', getParameters);
+
+getLocal();
