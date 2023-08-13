@@ -31,8 +31,19 @@ font-family: 'Shadows Into Light', cursive;
 #date {
     background: var(--teal);
 }
-#quote {
+/* #quote {
 
+} */
+
+/* #journalbutton {
+    background: var(--teal);
+} */
+.imageheader{
+    padding: 6px;
+    
+}
+#quoteholder {
+    max-width: 500px;
 }
 
 #weatherform{
