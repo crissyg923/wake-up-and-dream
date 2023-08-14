@@ -86,7 +86,7 @@ var getParameters= function (){
   searchParams=document.location.search.split('&');
   var moodToday=searchParams[1].split('=').pop();
   var moodColor=document.getElementById('color-type');
-var moodColorEl=document.createElement('p');
+  var moodColorEl=document.createElement('p');
   moodColorEl.innerHTML=moodToday
   moodColor.appendChild(moodColorEl);
 }
