@@ -1,5 +1,6 @@
 var myForm = document.querySelector('#journal-form');
 const entryInput = document.querySelector('#entry-text');
+const dateInput = document.querySelector('#date-today');
 var entryList = document.querySelector('#entry-list');
 var entries =[];
 var saveEl=document.querySelector("#saveBtn");
@@ -15,7 +16,10 @@ function printEntries () {
 
     li.textContent = entry;
     entryList.appendChild(li);
-    
+
+    var date=document.createElement("p")
+    date.textContent=dateInput.value;
+    li.appendChild(date);
     li.setAttribute("data-index", i);
     
     }
@@ -39,21 +43,15 @@ function init() {
  
   saveEl.addEventListener("click", function(event) {
     event.preventDefault();
-    var todayDate=dayjs().format('MMM DD, YYYY');
+    
 
     var entryText = entryInput.value.trim();
-    var date=function(){
-      var dateNow=dayjs();
-      var todayDate=document.createElement('p');
-      todayDate.textContent= dateNow.format('MMM D, YYYY');
-      
-    }
      
-  var date=todayDate.value;
     if (entryText === "") {
     return;
     }
-  var myEntry=entryText+date(todayDate);
+
+  var myEntry=entryText+dateText;
     entries.push(myEntry);
     entryInput.value = "";
   
