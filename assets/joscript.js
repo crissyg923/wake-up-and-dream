@@ -4,22 +4,27 @@ const dateInput = document.querySelector('#date-today');
 var entryList = document.querySelector('#entry-list');
 var entries =[];
 var saveEl=document.querySelector("#saveBtn");
-var moodInputEl = $('#mood-name');
-
+var moodColor=document.querySelector("#color-type")
 
 function printEntries () {
      entryList.innerHTML="";
     for (var i = 0; i < entries.length; i++) {
-
-  var entry=entries[i]
+      var entry=entries[i];
+     
     var li = document.createElement("li");
 
     li.textContent = entry;
+ //var myMood=document.createElement("h4");
+ //myMood.textContent=moodColor.("p");
+   // li.appendChild(myMood)
+
     entryList.appendChild(li);
+
 
     var date=document.createElement("p")
     date.textContent=dateInput.value;
     li.appendChild(date);
+
     li.setAttribute("data-index", i);
     
     }
@@ -66,12 +71,11 @@ function init() {
  
 
 
-
 var getParameters= function (){
   searchParams=document.location.search.split('&');
   var moodToday=searchParams[1].split('=').pop();
   var moodColor=document.getElementById('color-type');
-  var moodColorEl=document.createElement('p');
+var moodColorEl=document.createElement('p');
   moodColorEl.innerHTML=moodToday
   moodColor.appendChild(moodColorEl);
 }
