@@ -1,74 +1,65 @@
 
-var myForm = document.querySelector('#journal-form');
-const entryInput = document.querySelector('#entry-text');
-var entryList = document.querySelector('#entry-list');
-var entries =[];
-var saveEl=document.querySelector("#saveBtn");
-var moodColor=document.querySelector("#color-type")
-var todayDate=dayjs().format('MM/DD/YYYY');
+var myForm = $('#journal-form');
+const entryInput = $('#entry-text');
+var entryList = $('#entry-list');
+var saveEl=$('#saveBtn');
+var moodColor=$('#color-type');
+
 
 function printEntries () {
-     entryList.innerHTML="";
-    for (var i = 0; i < entries.length; i++) {
+     entryList.empty();
+     var entries=getEntry();
+    for (var i = 0; i < entries.length; i+=1) {
       var entry=entries[i];
-    var li = document.createElement("li");
-    li.textContent = entry;
-    entryList.appendChild(li);
-    li.setAttribute("data-index", i);
-    }
-  }
+    var entryDate=dayjs(entry.date);
+      var savedEl = $('<tr>');
+      var entryEl = $('<td>').text(entry.input);
+      var dateEl = $('<td>').text(entryDate.format('MM/DD/YYYY'));
+      savedEl.append(entryEl,dateEl);
+      entryList.append(savedEl);
+  }}
 
 
-function init() {
-    var storedEntry = JSON.parse(localStorage.getItem("entries"));
-    
-    if (storedEntry !== null) {
-      entries = storedEntry;
+function getEntry() {
+    var entries = localStorage.getItem('entries');
+    if (entries) {
+      entries = JSON.parse(entries);
+    } else {
+      entries = [];
     }
-    printEntries();
+    return entries;
   }
   
-  function storeEntry() {
+  
+  function storeEntry(entries) {
    
-    localStorage.setItem("entries", JSON.stringify(entries));
+    localStorage.setItem('entries', JSON.stringify(entries));
   }
   
  
-  saveEl.addEventListener("click", function(event) {
+  
+  function KeepandShow (event){
     event.preventDefault();
-  
-    var entryText = entryInput.value.trim();
-    var date=todayDate
+    var entryText = entryInput.val().trim();
+    var dateNow=dayjs();
 
-  
-    if (entryText === "") {
-      return;
-    }
-    entries.push(entryText);
-    entries.push(date)
-    entryInput.value = "";
+  var newEntry={
+    input:entryText,
+date:dateNow,
+  }
+var entries=getEntry();
+    entries.push(newEntry);
+    entryInput.val('');
   
 
-    storeEntry();
+  storeEntry(entries);
     printEntries();
-  });
-  
+  };
 
-  init()
+  saveEl.addEventListener("click", KeepandShow);
 
  
-function fetchMoodChoice () {
-  var moodURL="file:///C:/Users/Kitana/bootcamp/mydreams/mood.html";
- 
-  fetch(moodURL)
-  .then (function (response){
-      return response.text();
-  })
-  .then (function(data){
-      console.log(data);
-      printMood(data);
-})
-}
+
 
 
 var getParameters= function (){
@@ -81,6 +72,5 @@ var moodColorEl=document.createElement('p');
 
 
 getParameters();
-
-
+printEntries()
 
