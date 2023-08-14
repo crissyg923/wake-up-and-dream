@@ -9,13 +9,14 @@ var moodInputEl = $('#mood-name');
 function printEntries () {
      entryList.innerHTML="";
     for (var i = 0; i < entries.length; i++) {
+
   var entry=entries[i]
     var li = document.createElement("li");
+
     li.textContent = entry;
-    var ul=document.createElement("ul");
-    entryList.appendChild(ul);
-    ul.appendChild(li);
-    ul.setAttribute("data-index", i);
+    entryList.appendChild(li);
+    
+    li.setAttribute("data-index", i);
     
     }
   }
@@ -41,12 +42,18 @@ function init() {
     var todayDate=dayjs().format('MMM DD, YYYY');
 
     var entryText = entryInput.value.trim();
+    var date=function(){
+      var dateNow=dayjs();
+      var todayDate=document.createElement('p');
+      todayDate.textContent= dateNow.format('MMM D, YYYY');
+      
+    }
+     
   var date=todayDate.value;
     if (entryText === "") {
-        todayDate=dayjs();
-      return;
+    return;
     }
-  var myEntry=entryText+date;
+  var myEntry=entryText+date(todayDate);
     entries.push(myEntry);
     entryInput.value = "";
   
