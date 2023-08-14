@@ -8,74 +8,64 @@
     href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
     <link  href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap"
     rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="assets/journal.css">
-   
-    <script
-    src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/3.5.1/full.css"
+    integrity="sha512-2mnbZkijSvaJONYRZZYmUWfbK83kIGCBLfhRh9WKT7znG4LVHMCxC3Kzy6HcHXmfr8a4JTo/rRnLU7calLT89A=="
     crossorigin="anonymous"
-  ></script>
-
+    referrerpolicy="no-referrer"
+  />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
+
 <body>
-    <div class="flex justify-start">
-        <form id="journal-form"></form>
-        <div class="contents">
-    <div class="border-2 border-teal-500 border-8 box-border w-full sm:grid-cols-3">
+    <form>
+        <div class="w-full sm:grid-cols-3">
+            <div class="border-rose-300">
+                <div class="text-5xl py-5 text-rose-200 text-center border-rose-400 border-4">Dream Journal
+                    <div class="text-4xl py-10 text-black-500 text-center">Mood Today:
+                        <div id="color-type" class="box-content h-20 w-30 justify-center"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <div class="border-rose-400" >
-        <div class="text-4xl py-10 text-pink-200 text-center">My Dream Journal</div>
-    </div>
-
-<div class="text-2xl py-10 text-pink-200 text-center">
-<div>Mood Today:</div>
-<div id="color-type" class="box-content h-20 w-30 border-4 border-rose-400 justify-center">
-</div>
-
-    <div class="form-control box-content text-2xl w-full h-96 border-rose-400 border-4">
-        <div class="text-1xl">Describe your dream last night. If you don't remember, write your thoughts here:</div>
-        <div class="relative mb-3" data-te-input-wrapper-init>
-            <textarea label="input"
-              class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-              id="entry-text"
-              rows="3"></textarea>
+       <div class="form-control box-content border-double text-2xl h-97 border-rose-400 border-4">
+          <div class="text-1xl text-center">Describe your dreams & or thoughts here:</div>
+              <div class="relative mb-3" data-te-input-wrapper-init>
+                  <textarea label="entry-text"
+                     class="peer block w-full bg-transparent px-3 focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                     id="entry-text"
+                     rows="11">
+                  </textarea>
+              </div>
           </div>
-    </div>
+        </div>
 
-<div class="m-5 text-2xl text-center text-pink-200 outline outline-offset-2 outline-rose-400 bg-teal-500 hover:bg-blue-700 focus:bg-b">
-    <button id="saveBtn" class="btn btn-info">
-        Save
-    </button>
+    
+    <div class="flex justify-center w-full">
+    <button id="saveBtn" class="btn btn-secondary rounded-full px-16 uppercase bg-teal-200 text-2xl text-rose-500 hover:bg-blue-200">Save</button>
+</div>
+<div class="flex justify-center w-full">
+<a href="index.html" id="saveBtn" class="btn btn-secondary rounded-full px-16 uppercase bg-teal-200 text-2xl text-rose-500 hover:bg-blue-200 ">return home</a>
 </div>  
-<div class="m-5 text-2xl text-center text-pink-200 outline outline-offset-2 outline-rose-400 bg-teal-500 hover:bg-blue-700 focus:bg-b">
-<a href="./index.html" class="btn btn-info text-2xl" id="Exitbutton">Return Home</a>
-</div>
-</div>
-</div>
 </form>
- </div>
-
-</div> 
-<main class="container-fluid">
-    <div class="row">
-<div class="text-pink-200 outline-double outline-offset-2 outline-rose-400 m-8 col-md" >
-   
-   <table class="table table-auto">
-    <thead>
-    <tr>
-    <th class="text-2xl text-center text-pink-200 outline outline-offset-2 outline-rose-400 bg-teal-500">Saved Entries</th>
-    </tr>
-    </thead>
- <tbody id="entry-list">
-
-</tbody>  
-</table>
 </div>
-</div>
-</main>
+<div class="flex justify-center w-full">
+    <button id="past-dreams" class="btn btn-secondary rounded-full px-16 uppercase bg-teal-200 text-2xl text-rose-500 hover:bg-blue-200 ">Dream chronicles</button>
+    <div class="text-pink-200 outline-double outline-offset-2 outline-rose-400 m-8 " >
+        <div class="text-center text-3xl text-rose-200 outline-double outline-offset-2 outline-rose-300 bg-teal-500">
+        <h2 >Saved Entries</h2>
+     </div>
+        <div id="entry-list"></div>
+        </div>
+    </div>
+    
 
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="assets/joscript.js"></script>
 </body>
 </html>

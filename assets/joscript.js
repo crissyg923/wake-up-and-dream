@@ -1,62 +1,62 @@
-
-var myForm = $('#journal-form');
-const entryInput = $('#entry-text');
-var entryList = $('#entry-list');
-var saveEl=$('#saveBtn');
-var moodColor=$('#color-type');
+var myForm = document.querySelector('#journal-form');
+const entryInput = document.querySelector('#entry-text');
+var entryList = document.querySelector('#entry-list');
+var entries =[];
+var saveEl=document.querySelector("#saveBtn");
+var moodInputEl = $('#mood-name');
 
 
 function printEntries () {
-     entryList.empty();
-     var entries=getEntry();
-    for (var i = 0; i < entries.length; i+=1) {
-      var entry=entries[i];
-    var entryDate=dayjs(entry.date);
-      var savedEl = $('<tr>');
-      var entryEl = $('<td>').text(entry.input);
-      var dateEl = $('<td>').text(entryDate.format('MM/DD/YYYY'));
-      savedEl.append(entryEl,dateEl);
-      entryList.append(savedEl);
-  }}
-
-
-function getEntry() {
-    var entries = localStorage.getItem('entries');
-    if (entries) {
-      entries = JSON.parse(entries);
-    } else {
-      entries = [];
+     entryList.innerHTML="";
+    for (var i = 0; i < entries.length; i++) {
+  var entry=entries[i]
+    var li = document.createElement("li");
+    li.textContent = entry;
+    var ul=document.createElement("ul");
+    entryList.appendChild(ul);
+    ul.appendChild(li);
+    ul.setAttribute("data-index", i);
+    
     }
-    return entries;
+  }
+
+
+function init() {
+    var storedEntry = JSON.parse(localStorage.getItem("entries"));
+    
+    if (storedEntry !== null) {
+      entries = storedEntry;
+    }
+    printEntries();
   }
   
-  
-  function storeEntry(entries) {
+  function storeEntry() {
    
-    localStorage.setItem('entries', JSON.stringify(entries));
+    localStorage.setItem("entries", JSON.stringify(entries));
   }
   
  
-  
-  function KeepandShow (event){
+  saveEl.addEventListener("click", function(event) {
     event.preventDefault();
-    var entryText = entryInput.val().trim();
-    var dateNow=dayjs();
+    var todayDate=dayjs().format('MMM DD, YYYY');
 
-  var newEntry={
-    input:entryText,
-date:dateNow,
-  }
-var entries=getEntry();
-    entries.push(newEntry);
-    entryInput.val('');
+    var entryText = entryInput.value.trim();
+  var date=todayDate.value;
+    if (entryText === "") {
+        todayDate=dayjs();
+      return;
+    }
+  var myEntry=entryText+date;
+    entries.push(myEntry);
+    entryInput.value = "";
   
 
-  storeEntry(entries);
+    storeEntry();
     printEntries();
-  };
+  });
+  
 
-  saveEl.addEventListener("click", KeepandShow);
+  init()
 
  
 
@@ -65,12 +65,12 @@ var entries=getEntry();
 var getParameters= function (){
   searchParams=document.location.search.split('&');
   var moodToday=searchParams[1].split('=').pop();
-var moodColorEl=document.createElement('p');
+  var moodColor=document.getElementById('color-type');
+  var moodColorEl=document.createElement('p');
   moodColorEl.innerHTML=moodToday
   moodColor.appendChild(moodColorEl);
 }
 
 
 getParameters();
-printEntries()
 
