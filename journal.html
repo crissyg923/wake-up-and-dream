@@ -18,60 +18,48 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="assets/style.css">
 </head>
+
 <body>
     <form>
-    <div class="w-full sm:grid-cols-3">
+        <div class="w-full sm:grid-cols-3">
+            <div class="border-rose-300">
+                <div class="text-5xl py-5 text-rose-200 text-center border-rose-400 border-4">Dream Journal
+                    <div class="text-4xl py-10 text-black-500 text-center">Mood Today:
+                        <div id="color-type" class="box-content h-20 w-30 justify-center"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <div class="border-rose-300">
-        <div class="text-5xl py-5 text-rose-200 text-center border-rose-400 border-4">Dream Journal</div>
-    </div>
-    <div id="color-type" class="box-content" >
-        <div class="text-2xl py-10 text-black-300 text-center">Mood Today:</div>
-    </div>
-
-
-<!--<div id="color-type" class="box-content h-16 w-20 border-4 border-rose-400 justify-center">
-</div>-->
-    <div class="form-control box-content border-double text-2xl h-97 border-rose-400 border-4">
-        <div class="text-1xl text-center">Describe your dreams & or thoughts here:</div>
-        <div class="relative mb-3" data-te-input-wrapper-init>
-            <textarea label="entry-text"
-              class="peer block w-full bg-transparent px-3 focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-              id="entry-text"
-              rows="11"></textarea>
+       <div class="form-control box-content border-double text-2xl h-97 border-rose-400 border-4">
+          <div class="text-1xl text-center">Describe your dreams & or thoughts here:</div>
+              <div class="relative mb-3" data-te-input-wrapper-init>
+                  <textarea label="entry-text"
+                     class="peer block w-full bg-transparent px-3 focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                     id="entry-text"
+                     rows="11">
+                  </textarea>
+              </div>
           </div>
-    </div>
+        </div>
+
     
     <div class="flex justify-center w-full">
-    <button id="saveBtn" class="btn btn-secondary rounded-full px-16 uppercase bg-teal-200 text-2xl text-rose-500 hover:bg-blue-200">Save</button></div>
-
-<!--<div class="m-5 text-2xl text-center text-pink-200 outline outline-offset-2 outline-rose-400 bg-teal-500 hover:bg-blue-700 bg-gray-800">
-    <button id="saveBtn" class="btn btn-info">
-        Save
-    </button>-->
+    <button id="saveBtn" class="btn btn-secondary rounded-full px-16 uppercase bg-teal-200 text-2xl text-rose-500 hover:bg-blue-200">Save</button>
 </div>
 <div class="flex justify-center w-full">
 <a href="index.html" id="saveBtn" class="btn btn-secondary rounded-full px-16 uppercase bg-teal-200 text-2xl text-rose-500 hover:bg-blue-200 ">return home</a>
 </div>  
-<!--<div class="m-5 text-2xl text-center text-pink-200 outline outline-offset-2 outline-rose-400 bg-teal-500 hover:bg-blue-700 hover:bg-blue-700">
-<a href="./index.html" class="btn btn-info text-2xl" id="Exitbutton">Return Home</a>
-</div>-->
-</div>
+
 </div>
 <div class="flex justify-center w-full">
     <button id="past-dreams" class="btn btn-secondary rounded-full px-16 uppercase bg-teal-200 text-2xl text-rose-500 hover:bg-blue-200 ">Dream chronicles</button>
-    </div>  
-  
-<!--<div class="text-pink-200 outline-double outline-offset-2 outline-rose-400 m-8 " >
-    <div class="text-center text-3xl text-rose-200 outline-double outline-offset-2 outline-rose-300 bg-teal-500">
-    <h2 >Saved Entries</h2>
- </div>
     <ul id="entry-list"></ul>
     </div>
-</div>-->
-</form> 
-
 </div>
+</div>
+</form>
+
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="assets/joscript.js"></script>
