@@ -1,6 +1,6 @@
-
 var myForm = document.querySelector('#journal-form');
 const entryInput = document.querySelector('#entry-text');
+const dateInput = document.querySelector('#date-today');
 var entryList = document.querySelector('#entry-list');
 var entries =[];
 var saveEl=document.querySelector("#saveBtn");
@@ -12,6 +12,7 @@ function printEntries () {
       var entry=entries[i];
      
     var li = document.createElement("li");
+
     li.textContent = entry;
  //var myMood=document.createElement("h4");
  //myMood.textContent=moodColor.("p");
@@ -19,7 +20,13 @@ function printEntries () {
 
     entryList.appendChild(li);
 
+
+    var date=document.createElement("p")
+    date.textContent=dateInput.value;
+    li.appendChild(date);
+
     li.setAttribute("data-index", i);
+    
     }
   }
 
@@ -41,13 +48,16 @@ function init() {
  
   saveEl.addEventListener("click", function(event) {
     event.preventDefault();
-  
+    
+
     var entryText = entryInput.value.trim();
-  
+     
     if (entryText === "") {
-      return;
+    return;
     }
-    entries.push(entryText);
+
+  var myEntry=entryText+dateText;
+    entries.push(myEntry);
     entryInput.value = "";
   
 
@@ -59,18 +69,6 @@ function init() {
   init()
 
  
-function fetchMoodChoice () {
-  var moodURL="file:///C:/Users/Kitana/bootcamp/mydreams/mood.html";
- 
-  fetch(moodURL)
-  .then (function (response){
-      return response.text();
-  })
-  .then (function(data){
-      console.log(data);
-      printMood(data);
-})
-}
 
 
 var getParameters= function (){
@@ -84,6 +82,4 @@ var moodColorEl=document.createElement('p');
 
 
 getParameters();
-
-
 

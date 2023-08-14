@@ -25,7 +25,11 @@
             <div class="border-rose-300">
                 <div class="text-5xl py-5 text-rose-200 text-center border-rose-400 border-4">Dream Journal
                     <div class="text-4xl py-10 text-black-500 text-center">Mood Today:
-                        <div id="color-type" class="box-content h-20 w-30 justify-center"></div>
+                        <div id="color-type" class="box-content h-5 w-30 justify-center"></div>
+                    </div>
+        
+                    <label for="date-today" class="text-4xl py-10 text-black-500 text-center">Date Today:</label>
+                       <div class=" box-content h-3 w-30 justify-center mb-5"> <input type="date" id="date-today" "/>
                     </div>
                 </div>
             </div>
@@ -50,15 +54,22 @@
 <div class="flex justify-center w-full">
 <a href="index.html" id="saveBtn" class="btn btn-secondary rounded-full px-16 uppercase bg-teal-200 text-2xl text-rose-500 hover:bg-blue-200 ">return home</a>
 </div>  
-
+</form>
 </div>
 <div class="flex justify-center w-full">
     <button id="past-dreams" class="btn btn-secondary rounded-full px-16 uppercase bg-teal-200 text-2xl text-rose-500 hover:bg-blue-200 ">Dream chronicles</button>
-    <ul id="entry-list"></ul>
-    </div>
-</div>
-</div>
-</form>
+  </div>  
+  <div class="text-pink-200 outline-double outline-offset-2 outline-rose-400 m-8 " >
+        <div class="text-center text-3xl text-rose-200 outline-double outline-offset-2 outline-rose-300 bg-teal-500">
+        <h2 >Saved Entries</h2>
+     </div>
+        <ul id="entry-list"></ul>
+        </div>
+    
+    
+
+
+
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
