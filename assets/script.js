@@ -212,8 +212,8 @@ var getLocal=function (){
 }
 function sendToAPI (cityInputValue) {
     console.log(cityInputValue);
-    var requestURL="http://api.weatherapi.com/v1/forecast.json?key=2bf9656260f94a3db7141730231008&q=" + cityInputValue;
-    // var requestURL = 'http://api.openweathermap.org/geo/1.0/direct?q=' + cityInputValue + ',US&limit=5&appid=' + weatherAPI;
+    var requestURL="https://api.weatherapi.com/v1/forecast.json?key=2bf9656260f94a3db7141730231008&q=" + cityInputValue;
+    
     fetch(requestURL)
     .then (function (response){
         if (!response.ok) {
