@@ -123,7 +123,7 @@ function displayWeatherForecast(weatherData) {
     dailyForecastTitle.innerHTML= "Daily Forecast:    ";
     currentForecastDateEl.innerHTML= dayjs(currentDate).format('M/D/YYYY');
     var futureWeatherIcon= weatherData.forecast['forecastday'][0]['day']['condition']['icon'];
-    var futureWeatherIconLink= "http:" + futureWeatherIcon;
+    var futureWeatherIconLink= "https:" + futureWeatherIcon;
     weatherForecastIconEl.setAttribute('src', futureWeatherIconLink);
     tempLowEl.innerHTML="Low Temp: " + weatherData.forecast['forecastday'][0]['day']['mintemp_f'] + "°";
     tempHighEl.innerHTML="High Temp: " + weatherData.forecast['forecastday'][0]['day']['maxtemp_f'] + "°";
