@@ -16,7 +16,7 @@ function printEntries () {
     li.textContent = entry;
  //var myMood=document.createElement("h4");
  //myMood.textContent=moodColor.("p");
-   // li.appendChild(myMood)
+   //li.appendChild(myMood)
 
     entryList.appendChild(li);
 
