@@ -1,45 +1,52 @@
-const myForm = document.querySelector('#journal-form');
-const entryInput = document.querySelector('#entry-text');
-const dateInput = document.querySelector('#date-today');
-
-var saveEl=document.querySelector("#saveBtn");
-var moodColor=document.querySelector("#color-type")
-var dreamEl=document.querySelector("#dreamBtn");
-
-
-
-
-
+document.addEventListener('DOMContentLoaded', function() {
+  var entryTextArea = document.querySelector('#entry-text');
   
- 
-  saveEl.addEventListener("submit", function(event) {
-    event.preventDefault();
-   
-
-    var entryText = entryInput.value.trim();
-     
-    if (entryText === "") {
-    return;
+  var entries = [];
+  
+  function getEntries() {
+    var storedEntries = JSON.parse(localStorage.getItem("entries"));
+  
+    if (storedEntries !== null) {
+      entries = storedEntries;
     }
-
- getEntries();
-    entries.push(entryText);
-    entryInput.value = "";
+  }
   
-
-    storeEntry();
-
+  function storeEntry(entry) {
+    entries.push(entry);
+    localStorage.setItem("entries", JSON.stringify(entries));
+  }
+  
+  function init() {
+    getEntries();
+  }
+  
+  var form = document.querySelector('form');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    var newEntry = entryTextArea.value.trim();
+    
+    if (newEntry !== "") {
+      storeEntry(newEntry);
+      entryTextArea.value = ""; 
+    }
+    
+    
+    
+   
   });
   
 
-  
+  init();
+});
 
- 
+
+
 
 
 var getParameters= function (){
   searchParams=document.location.search.split('&');
-  var moodToday=searchParams[1]?.split('=').pop();
+  var moodToday=searchParams[1].split('=').pop();
   var moodColor=document.getElementById('color-type');
 var moodColorEl=document.createElement('p');
   moodColorEl.innerHTML=moodToday

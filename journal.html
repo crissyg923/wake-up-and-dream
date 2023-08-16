@@ -1,75 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Dream Journal</title>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/3.5.1/full.css"
-        integrity="sha512-2mnbZkijSvaJONYRZZYmUWfbK83kIGCBLfhRh9WKT7znG4LVHMCxC3Kzy6HcHXmfr8a4JTo/rRnLU7calLT89A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/3.5.1/full.css"
+      integrity="sha512-2mnbZkijSvaJONYRZZYmUWfbK83kIGCBLfhRh9WKT7znG4LVHMCxC3Kzy6HcHXmfr8a4JTo/rRnLU7calLT89A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="assets/style.css">
-</head>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
 
-<body>
+  <body>
     <form>
-        <div class="w-full sm:grid-cols-3">
-            <div class="border-rose-300">
-                <div class="text-5xl py-5 text-rose-200 text-center border-rose-400 border-4">Dream Journal
-                    <div class="text-4xl py-10 text-black-500 text-center">Mood Today:
-                        <div id="color-type" class="box-content h-5 w-30 justify-center"></div>
-                    </div>
-
-                </div>
+      <div class="w-full sm:grid-cols-3">
+        <div class="border-rose-300">
+          <div
+            class="text-5xl py-5 text-rose-200 text-center border-rose-400 border-4"
+          >
+            Dream Journal
+            <div class="text-4xl py-10 text-black-500 text-center">
+              Mood Today:
+              <div
+                id="color-type"
+                class="box-content h-5 w-30 justify-center"
+              ></div>
             </div>
+          </div>
         </div>
+      </div>
 
-       <div class=" form-control box-content border-double text-2xl h-97 border-rose-400 border-4">
-                        <div class="text-1xl text-center">Describe your dreams & or thoughts here:</div>
-                        <div class="relative mb-3" data-te-input-wrapper-init>
-                            <textarea name="entry" type="text"
-                                class="peer block w-full bg-transparent px-3 focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                                id="entry-text" rows="11">
-                  </textarea>
-                        </div>
-                    </div>
-                </div>
+      <div
+        class="form-control box-content border-double text-2xl h-97 border-rose-400 border-4"
+      >
+        <div class="text-1xl text-center">
+          Describe your dreams & or thoughts here:
+        </div>
+        <div class="relative mb-3" data-te-input-wrapper-init>
+          <textarea
+            name="entry"
+            id="entry-text"
+            rows="11"
+            placeholder="Your dream entry goes here"
+          ></textarea>
+        </div>
+      </div>
 
-
-                <div class="flex justify-center w-full">
-                    <button id="saveBtn" type="submit"
-                        class=" btn btn-info rounded-full px-16 uppercase bg-teal-200 text-2xl text-rose-500 hover:bg-blue-200">Save</button>
-                </div>
-                <div class="flex justify-center w-full">
-                    <a href="index.html" id="homeBtn"
-                        class="btn btn-secondary rounded-full px-16 uppercase bg-teal-200 text-2xl text-rose-500 hover:bg-blue-200 ">return
-                        home</a>
-                </div>
-                <div class="flex justify-center w-full">
-                    <a href="Entry.html" id="dreamBtn"
-                        class="btn btn-secondary rounded-full px-16 uppercase bg-teal-200 text-2xl text-rose-500 hover:bg-blue-200 ">Dream
-                        chronicles</a>
-                </div>
+      <div class="flex justify-center w-full">
+        <button
+          id="saveBtn"
+          type="submit"
+          class="btn btn-info rounded-full px-16 uppercase bg-teal-200 text-2xl text-rose-500 hover:bg-blue-200"
+        >
+          Save
+        </button>
+      </div>
+      <div class="flex justify-center w-full">
+        <a
+          href="index.html"
+          id="homeBtn"
+          class="btn btn-secondary rounded-full px-16 uppercase bg-teal-200 text-2xl text-rose-500 hover:bg-blue-200"
+          >return home</a
+        >
+      </div>
+      <div class="flex justify-center w-full">
+        <a
+          href="Entry.html"
+          id="dreamBtn"
+          class="btn btn-secondary rounded-full px-16 uppercase bg-teal-200 text-2xl text-rose-500 hover:bg-blue-200"
+          >Dream chronicles</a
+        >
+      </div>
     </form>
     <script>
-        const form = document.querySelector('form');
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const fd = new FormData(form);
-            const obj = Object.fromEntries(fd);
-            const json = JSON.stringify(obj);
-            localStorage.setItem('form', json);
-            window.location.href = "Entry.html";
-        });
+      const form = document.querySelector("form");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const fd = new FormData(form);
+        const obj = Object.fromEntries(fd);
+        const json = JSON.stringify(obj);
+        localStorage.setItem("entries", json);
+        window.location.href = "Entry.html";
+      });
     </script>
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-   <script src="assets/shared.js"></script>
-     <script src="assets/joscript.js"></script> 
-</body>
-
+    <script src="assets/shared.js"></script>
+    <script src="assets/joscript.js"></script>
+  </body>
 </html>
