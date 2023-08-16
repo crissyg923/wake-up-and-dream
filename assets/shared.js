@@ -1,4 +1,5 @@
 var entryList = document.querySelector('#entry-list');
+
 var entries = [];
 function getEntries() {
     var storedEntry = JSON.parse(localStorage.getItem("entries"));
