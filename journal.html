@@ -90,10 +90,12 @@
           >Dream chronicles</a
         >
       </div>
-      
+        
     </form>
     <script>
       const form = document.querySelector("form");
+   //When users click the submit button, their input on the form will be saved as a string //
+      //After data is saved to storgae, the page will redirect to the Entry.html page//
       form.addEventListener("submit", (e) => {
         e.preventDefault();
         const fd = new FormData(form);
