@@ -18,17 +18,23 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="assets/Entry.css">
 </head>
+
 <body class="h-screen">
+
+<body>
+    <!-- all saved entries will display here in a list -->
+
 <main>
     <div id="data" class="h-screen w-full p-6  border-2"></div>
 </main>
 
 <script>
+    //This code fetches the entries from local storage of Journal.html to this html//
   const entries = JSON.parse(localStorage.getItem('entries'));
 
   if (entries) {
     const entryList = document.getElementById('data');
-
+//for each entry, a new div is created and added to the Data div to be displayed//
     for (const entry of entries) {
       const entryElement = document.createElement('div');
       entryElement.innerHTML = `<span>${entry}</span>`;
