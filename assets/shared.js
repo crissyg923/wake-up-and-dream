@@ -1,4 +1,4 @@
-var entryList = document.querySelector('#entry-list');
+var entryList = document.querySelector('data');
 
 var entries = [];
 function getEntries() {
@@ -19,18 +19,9 @@ function printEntries() {
         var li = document.createElement("li");
 
         li.textContent = entry;
-        //var myMood=document.createElement("h4");
-        //myMood.textContent=moodColor.("p");
-        // li.appendChild(myMood)
 
         entryList.appendChild(li);
 
-
-        var date = document.createElement("p")
-        date.textContent = dateInput.value;
-        li.appendChild(date);
-
-        li.setAttribute("data-index", i);
 
     }
 }
