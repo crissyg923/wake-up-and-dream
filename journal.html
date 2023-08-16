@@ -24,6 +24,7 @@
   </head>
 
   <body>
+    <!-- Use a form to record and call on user input -->
     <form>
       <div class="w-full sm:grid-cols-3">
         <div class="border-rose-300">
@@ -33,6 +34,7 @@
             Dream Journal
             <div class="text-4xl py-10 text-black-500 text-center">
               Mood Today:
+              <!-- Displays the response from the Mood.html -->
               <div
                 id="color-type"
                 class="box-content h-5 w-30 justify-center"
@@ -43,12 +45,14 @@
       </div>
 
       <div
+        <!-- Registers div as part of the form -->
         class="form-control box-content border-double text-2xl h-97 border-rose-400 border-4"
       >
         <div class="text-1xl text-center">
           Describe your dreams & or thoughts here:
         </div>
         <div class="relative flex justify-center mb-3" data-te-input-wrapper-init>
+          <!-- Textarea is where users will type their journal entry -->
           <textarea
             name="entry"
             id="entry-text"
@@ -59,6 +63,7 @@
       </div>
 
       <div class="flex justify-center w-full">
+        <!-- When users click on save button, entry will be saved to storage. They will be redirected to a new page, with their saved entries displayed -->
         <button
           id="saveBtn"
           type="submit"
@@ -68,6 +73,7 @@
         </button>
       </div>
       <div class="flex justify-center w-full">
+        <!-- Takes users to home page, which is index.html -->
         <a
           href="index.html"
           id="homeBtn"
@@ -76,6 +82,7 @@
         >
       </div>
       <div class="flex justify-center w-full">
+        <!-- Takes user to saved entries page -->
         <a
           href="Entry.html"
           id="dreamBtn"
@@ -83,9 +90,12 @@
           >Dream chronicles</a
         >
       </div>
+        
     </form>
     <script>
       const form = document.querySelector("form");
+   //When users click the submit button, their input on the form will be saved as a string //
+      //After data is saved to storgae, the page will redirect to the Entry.html page//
       form.addEventListener("submit", (e) => {
         e.preventDefault();
         const fd = new FormData(form);
