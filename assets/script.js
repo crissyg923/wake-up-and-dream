@@ -125,8 +125,8 @@ function displayWeatherForecast(weatherData) {
     var futureWeatherIcon= weatherData.forecast['forecastday'][0]['day']['condition']['icon'];
     var futureWeatherIconLink= "https:" + futureWeatherIcon;
     weatherForecastIconEl.setAttribute('src', futureWeatherIconLink);
-    tempLowEl.innerHTML="Low Temp: " + weatherData.forecast['forecastday'][0]['day']['mintemp_f'] + "°";
-    tempHighEl.innerHTML="High Temp: " + weatherData.forecast['forecastday'][0]['day']['maxtemp_f'] + "°";
+    tempLowEl.innerHTML="Low Temp: " + weatherData.forecast['forecastday'][0]['day']['mintemp_f'] + "°F";
+    tempHighEl.innerHTML="High Temp: " + weatherData.forecast['forecastday'][0]['day']['maxtemp_f'] + "°F";
     chanceOfRain.innerHTML="Precipitation: " + weatherData.forecast['forecastday'][0]['day']['daily_chance_of_rain'] + "%";
 
     fullDayForecast.appendChild(dailyForecastTitle);
