@@ -20,26 +20,26 @@
 </head>
 <body>
 <main>
-
-
-        <div id="data" class=" h-full w-full p-6 m-10 border-2"></div>
-   
+    <div id="data" class="h-full w-full p-6 m-10 border-2"></div>
 </main>
-    
+
 <script>
-    const json=localStorage.getItem('form');
-    const obj=JSON.parse(json);
-    for (key in obj){
-        const markup=
-        <div>
-        <span>${key}:${obj[key]}</span>
-            </div>
-            ;
-            document.getElementById('data').innerHTML+=markup;
+  const entries = JSON.parse(localStorage.getItem('entries'));
+
+  if (entries) {
+    const entryList = document.getElementById('data');
+
+    for (const entry of entries) {
+      const entryElement = document.createElement('div');
+      entryElement.innerHTML = `<span>${entry}</span>`;
+      entryList.appendChild(entryElement);
     }
+  }
 </script>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-     <script src="assets/shared.js"></script>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="assets/shared.js"></script>
 </body>
 </html>
+
