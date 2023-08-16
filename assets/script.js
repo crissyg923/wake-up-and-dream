@@ -1,5 +1,5 @@
 var quoteEl = document.getElementById('quote');
-
+// Displays quote of the day
 var displayQuote= function(result) {
     console.log(result);
     // var quoteEl = document.getElementById('quote');
@@ -9,25 +9,12 @@ var displayQuote= function(result) {
     quoteEl.innerHTML= quoteText + "\n ~" + quoteAuthor;
     
 }
-// var category = 'happiness'
-// $.ajax({
-//     method: 'GET',
-//     url: 'https://api.api-ninjas.com/v1/quotes?category=inspirational',
-//     headers: { 'X-Api-Key': 'XZYgSs1z93SmeyYfHa2DaQ==MUZAq7wM5vAVmY0t'},
-//     contentType: 'application/json',
-//     success: function(result) {
-//         console.log(result);
-//         displayQuote(result);
-//     },
-//     error: function ajaxError(jqXHR) {
-//         console.error('Error: ', jqXHR.responseText);
-//     }
-// });
+
 
 const lastQuoteShown = JSON.parse(localStorage.getItem('lastQuoteShown'));
-const lastQuoteChange = localStorage.getItem('lastQuoteChange'); // You can also use cookies
+const lastQuoteChange = localStorage.getItem('lastQuoteChange'); 
 
-// If nothing in local storage or if 24 hours have passed, fetch a new image
+// Pauses fetching new quote unless 24 hours have passed
 if (!lastQuoteChange || Date.now() - lastQuoteChange >= 24 * 60 * 60 * 1000) {
     $.ajax({
         method: 'GET',
@@ -55,6 +42,7 @@ else if (localStorage) {
     quoteEl.innerHTML=lastQuoteShown;
 }
 
+// References DOM elements that will display weather
 var weatherForm=document.querySelector('#weatherform');
 var currentDate=document.getElementById('date');
 currentDate.innerHTML=dayjs().format('dddd, MMMM D, YYYY');
@@ -65,16 +53,11 @@ var currentConditions = document.querySelector('#forecast1');
 var fullDayForecast = document.querySelector('#forecast2');
 var currentMoonPhaseEl = document.querySelector('#moonphase');
 
+// Clears out weather data if new search is inititiated and unhides weather elements
 function displayWeatherForecast(weatherData) {
     currentConditions.textContent="";
     fullDayForecast.textContent="";
     currentMoonPhaseEl.textContent="";
-    // References DOM elements displaying weather.
-    // weatherDisplay.textContent="";
-    // var currentConditions = document.querySelector('#forecast1');
-    // var fullDayForecast = document.querySelector('#forecast2');
-    // var currentMoonPhaseEl = document.querySelector('#moonphase');
-    //Unhides DOM elements upon weather search submission to display forecast
     currentConditions.style.display="block";
     fullDayForecast.style.display="block";
     currentMoonPhaseEl.style.display="block";
@@ -119,7 +102,7 @@ function displayWeatherForecast(weatherData) {
     var tempHighEl=document.createElement('p');
     var chanceOfRain=document.createElement('p');
     
-
+    // Sets text content of weather elements
     dailyForecastTitle.innerHTML= "Daily Forecast:    ";
     currentForecastDateEl.innerHTML= dayjs(currentDate).format('M/D/YYYY');
     var futureWeatherIcon= weatherData.forecast['forecastday'][0]['day']['condition']['icon'];
@@ -129,6 +112,7 @@ function displayWeatherForecast(weatherData) {
     tempHighEl.innerHTML="High Temp: " + weatherData.forecast['forecastday'][0]['day']['maxtemp_f'] + "°F";
     chanceOfRain.innerHTML="Precipitation: " + weatherData.forecast['forecastday'][0]['day']['daily_chance_of_rain'] + "%";
 
+    // Appends weather data from API to weather elements
     fullDayForecast.appendChild(dailyForecastTitle);
     fullDayForecast.appendChild(currentForecastDateEl);
     fullDayForecast.appendChild(weatherForecastIconEl);
@@ -174,7 +158,7 @@ var headers = {'Authorization': 'Z50bd6r1sVnst9KueR7gxIM0rt33qNk3oa3wIuwwJj95XXG
 
 // Checks for a saved timestamp and previously shown image
 const lastImageShown = localStorage.getItem('lastImageShown');
-const lastImageChange = localStorage.getItem('lastImageChange'); // You can also use cookies
+const lastImageChange = localStorage.getItem('lastImageChange'); 
 
 // If nothing in local storage or if 24 hours have passed, fetch a new image
 if (!lastImageChange || Date.now() - lastImageChange >= 24 * 60 * 60 * 1000) {
@@ -197,6 +181,7 @@ else if (localStorage) {
     imageHolderEl.src=lastImageShown;
 }
 
+// Saves last city searched in local storage
 var saveLocal = function(cityInputValue) {
 localStorage.setItem('lastcitysearched', cityInputValue);
 }
@@ -210,6 +195,8 @@ var getLocal=function (){
     sendToAPI(citySearchHistory);
     
 }
+
+// Sends searched zip code to API
 function sendToAPI (cityInputValue) {
     console.log(cityInputValue);
     var requestURL="https://api.weatherapi.com/v1/forecast.json?key=2bf9656260f94a3db7141730231008&q=" + cityInputValue;
@@ -230,7 +217,7 @@ function sendToAPI (cityInputValue) {
     });
 }
 
-
+// Grabs value of zip code search
 function getParameters(event) {
     event.preventDefault();
     var cityInputValue = document.querySelector('#cityinput').value;
@@ -239,6 +226,8 @@ function getParameters(event) {
     
 }
 
+// Listens for weather form submission
 weatherForm.addEventListener('submit', getParameters);
 
+// Calls function to get last city searched from local storage
 getLocal();
